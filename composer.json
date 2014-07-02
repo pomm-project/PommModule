@@ -20,7 +20,7 @@
     "require": {
         "php": ">=5",
         "pomm/pomm": ">=1.2",
-        "symfony/console": "~2.3",
+        "symfony/console": "~2.3"
     },
     "require-dev": {
         "phpunit/phpunit": "~3.7",
