@@ -3,6 +3,13 @@ PommModule
 
 Pomm module for zf2
 
+Installation
+------------
+
+This package can be installed via composer
+
+   https://packagist.org/packages/jitb/pomm-module
+
 Configuration
 -------------
 
