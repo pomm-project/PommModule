@@ -1,0 +1,35 @@
+{
+    "name": "jitb/pomm-module",
+    "description": "Zend Framework 2 Module that provides Pomm basic functionality",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "http://www.pomm-project.org/",
+    "keywords": [
+        "pomm",
+        "module",
+        "zf2"
+    ],
+    "authors": [
+        {
+            "name": "Martin Supiot",
+            "email": "msupiot@jack.fr",
+            "homepage": "http://www.jack.fr/"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5",
+        "pomm/pomm": ">=1.2",
+        "symfony/console": "~2.3",
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7",
+        "squizlabs/php_codesniffer": "1.5.*",
+        "zendframework/zendframework": "~2.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "PommModule\\": "src/"
+        }
+    }
+}
