@@ -13,3 +13,4 @@ return array(
       'dsn'  => 'pgsql://postgres:postgres@127.0.0.1/mytable',
    ),
 );
+
