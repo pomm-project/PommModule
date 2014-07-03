@@ -25,3 +25,10 @@ return array(
         ),
     ),
 );
+
+TODO
+----
+
+Add command line Pomm classes generator
+Add configuration for auth adapter
+Add paginator
