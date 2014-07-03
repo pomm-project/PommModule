@@ -9,8 +9,12 @@ Configuration
 Just add it to your application configuration file
 
 return array(
-   'pomm' => array(
-      'dsn'  => 'pgsql://postgres:postgres@127.0.0.1/mytable',
-   ),
+    'pomm' => array(
+        'databases' => array(
+            'con1' => array (
+                'dsn'  => 'pgsql://postgres:postgres@127.0.0.1/myschema',
+                'name' => 'con1',
+            ),
+        ),
+    ),
 );
-
