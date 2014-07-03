@@ -19,12 +19,9 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5",
-        "pomm/pomm": ">=1.2",
-        "symfony/console": "~2.3",
+        "pomm/pomm": ">=1.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "~3.7",
-        "squizlabs/php_codesniffer": "1.5.*",
         "zendframework/zendframework": "~2.3"
     },
     "autoload": {
