@@ -16,4 +16,34 @@ return array(
             'pomm.authentication.default' => 'Zend\Authentication\AuthenticationService',
         ),
     ),
+    'controllers' => [
+        'invokables' => [
+            'mapfile' => 'PommModule\Controller\MapFileController',
+            'scanmapfile' => 'PommModule\Controller\ScanMapFileController',
+        ],
+    ],
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+                'pomm-mapfile-create' => array(
+                    'options' => array(
+                        'route'    => 'mapfile-create <table> --database= --schema= --prefix-path= [--extends=] [--output-level=] [--prefix-namespace=]',
+                        'defaults' => array(
+                            'controller' => 'mapfile',
+                            'action'     => 'generate'
+                        )
+                    )
+                ),
+                'pomm-mapfile-scan' => array(
+                    'options' => array(
+                        'route'    => 'mapfile-scan --database= --schema= --prefix-path= [--extends=] [--output-level=] [--prefix-namespace=]',
+                        'defaults' => array(
+                            'controller' => 'scanmapfile',
+                            'action'     => 'generate'
+                        )
+                    )
+                )
+            )
+        )
+    ),
 );

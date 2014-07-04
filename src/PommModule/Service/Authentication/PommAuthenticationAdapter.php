@@ -1,4 +1,11 @@
 <?php
+/**
+ * Base module for integration of Pomm projects with ZF2 applications
+ *
+ * @license MIT
+ * @link    http://www.pomm-project.org/
+ * @author  Martin Supiot <msupiot@jack.fr>
+ */
 
 namespace PommModule\Service\Authentication;
 

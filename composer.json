@@ -19,7 +19,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5",
-        "pomm/pomm": ">=1.2"
+        "pomm/pomm": ">=1.2",
+        "zendframework/zend-console": "2.3.1"
     },
     "require-dev": {
         "zendframework/zendframework": "~2.3"
@@ -28,5 +29,6 @@
         "psr-0": {
             "PommModule\\": "src/"
         }
-    }
+    },
+    "bin": ["bin/go-pomm.php"]
 }
