@@ -25,3 +25,9 @@ return array(
         ),
     ),
 );
+
+TODO
+----
+
+Add configuration for auth adapter
+Add paginator
