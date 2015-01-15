@@ -16,7 +16,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 use Pomm\Service as PommService;
 
-class PommAuthenticationAdapter implements AdapterInterface, ServiceLocatorAwareInterface 
+class PommAuthenticationAdapter implements AdapterInterface, ServiceLocatorAwareInterface
 {
     protected $identity;
     protected $password;
@@ -42,7 +42,7 @@ class PommAuthenticationAdapter implements AdapterInterface, ServiceLocatorAware
     public function authenticate()
     {
         $pommService = $this->services->get('PommModule\Service\PommServiceFactory');
-        $connection = $pommService->getDatabase('con1')->getConnection();
+        $connection = $pommService->getDatabase()->getConnection();
 
         // Check credentials in database
         $userMap = $connection->getMapFor('PstudioDb1\JitbCommon\Users');
@@ -66,7 +66,7 @@ class PommAuthenticationAdapter implements AdapterInterface, ServiceLocatorAware
         $this->identity = $identity;
     }
 
-    public  function setCredentialValue($password)
+    public function setCredentialValue($password)
     {
         $this->password = $password;
     }

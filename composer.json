@@ -20,15 +20,13 @@
     "require": {
         "php": ">=5",
         "pomm/pomm": ">=1.2",
+        "zendframework/zendframework": "~2.3",
         "zendframework/zend-console": "2.3.1"
-    },
-    "require-dev": {
-        "zendframework/zendframework": "~2.3"
     },
     "autoload": {
         "psr-0": {
             "PommModule\\": "src/"
         }
     },
-    "bin": ["bin/go-pomm.php"]
+    "bin": ["bin/go-pomm"]
 }

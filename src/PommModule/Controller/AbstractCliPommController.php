@@ -20,7 +20,7 @@ use Zend\Mvc\Controller\AbstractActionController;
  * Console controller
  * Generate Pomm base class
  */
-Abstract class AbstractCliPommController extends AbstractActionController
+abstract class AbstractCliPommController extends AbstractActionController
 {
     /**
      * Get options from parameters
@@ -49,8 +49,7 @@ Abstract class AbstractCliPommController extends AbstractActionController
             $options['output_level'] = $outputLevel != ''
                 ? constant('\Pomm\Tools\OutputLine::LEVEL_'.strtoupper($outputLevel))
                 : OutputLine::LEVEL_INFO;
-        }
-        else {
+        } else {
             throw new \Exception(
                 "Invalid log output level: {$request->getParam('output-level')}"
                 ."\nAvailable levels: DEBUG, INFO (default), WARNING, ERROR, CRITICAL"

@@ -69,7 +69,7 @@ class Module implements ConfigProviderInterface, InitProviderInterface, Bootstra
         return array(
             'factories' => array(
                 'Zend\Authentication\Storage\Session' => function($sm){
-                    return new SessionStorage('proposalstudio7');
+                    return new SessionStorage('auth');
                 },
                 'Pomm\Authentication\AuthenticationService' => function($sm) {
                     $authAdapter = new PommAuthenticationAdapter();

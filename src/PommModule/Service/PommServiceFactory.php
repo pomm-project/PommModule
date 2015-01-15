@@ -24,19 +24,9 @@ class PommServiceFactory extends AbstractServiceFactory
      */
     public function createService(ServiceLocatorInterface $sl)
     {
-        $service = new PommService();
         $databaseList = $this->getPommOptions($sl)->getDatabases();
+        $service = new PommService($databaseList);
 
-        foreach ($databaseList as $databaseKey => $databaseOptionList) {
-            $service->setDatabase(
-                $databaseOptionList['name'], 
-                new PommDatabase(
-                    array(
-                        'dsn' => $databaseOptionList['dsn']
-                    )
-                )
-            );
-        }
         return $service;
     }
 
