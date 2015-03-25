@@ -36,6 +36,11 @@ Session builder
 ---------------
 You can define an optional session builder. As the "Database" module is loaded by default, it's a good idea to define it in.
 
+Usage
+-----
+
+All generated files will be saved in a "Database" module. You can add your own files like specific SessionBuilder in the module.
+
 Inspection
 ----------
 
