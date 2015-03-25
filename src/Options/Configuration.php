@@ -7,7 +7,7 @@
  * @author  Martin Supiot <msupiot@jack.fr>
  */
 
-namespace PommModule\Options;
+namespace PommProject\PommModule\Options;
 
 use Zend\Stdlib\AbstractOptions;
 

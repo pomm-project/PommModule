@@ -9,7 +9,8 @@
 
 return array(
     'modules' => array(
-        'PommModule',
+        'PommProject\PommModule',
+        'Database',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

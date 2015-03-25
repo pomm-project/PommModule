@@ -7,12 +7,11 @@
  * @author  Martin Supiot <msupiot@jack.fr>
  */
 
-namespace PommModule\Service;
+namespace PommProject\PommModule\Service;
 
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-use Pomm\Connection\Database as PommDatabase;
-use Pomm\Service as PommService;
+use PommProject\Foundation\Pomm as PommService;
 
 /**
  * Initiate a connection to a database
@@ -35,6 +34,6 @@ class PommServiceFactory extends AbstractServiceFactory
      */
     public function getOptionsClass()
     {
-        return 'PommModule\Options\Configuration';
+        return 'PommProject\PommModule\Options\Configuration';
     }
 }

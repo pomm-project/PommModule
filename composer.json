@@ -1,11 +1,11 @@
 {
     "name": "jitb/pomm-module",
-    "description": "Zend Framework 2 Module that provides Pomm basic functionality",
+    "description": "Zend Framework 2 Module that provides Pomm2 basic functionality",
     "type": "library",
     "license": "MIT",
     "homepage": "http://www.pomm-project.org/",
     "keywords": [
-        "pomm",
+        "pomm2",
         "module",
         "zf2"
     ],
@@ -18,15 +18,23 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5",
-        "pomm/pomm": ">=1.2",
+        "php": ">=5.4.4",
+        "pomm-project/model-manager": "2.0.*@dev",
+        "pomm-project/foundation": "2.0.*@dev",
         "zendframework/zendframework": "~2.3",
-        "zendframework/zend-console": "2.3.1"
+        "zendframework/zend-console": "2.3.4"
     },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.7"
+    },
+    "bin": ["bin/pomm.php"],
     "autoload": {
-        "psr-0": {
-            "PommModule\\": "src/"
-        }
-    },
-    "bin": ["bin/go-pomm"]
+        "psr-4": {
+            "PommProject\\PommModule\\": "src/",
+            "PommProjectTest\\PommModule\\": "test/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    }
 }
