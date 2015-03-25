@@ -1,7 +1,9 @@
 PommModule
 ==========
 
-Pomm module for zf2
+Pomm module to use Pomm2 with zf2
+
+If you want to use Pomm 1.x, there's a 1.0 branch.
 
 Installation
 ------------
