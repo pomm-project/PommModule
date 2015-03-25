@@ -1,5 +1,5 @@
 {
-    "name": "jitb/pomm-module",
+    "name": "pomm-project/pomm-module",
     "description": "Zend Framework 2 Module that provides Pomm2 basic functionality",
     "type": "library",
     "license": "MIT",
