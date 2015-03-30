@@ -68,7 +68,7 @@ abstract class AbstractCliPommController extends AbstractActionController implem
         $this->options = array();
 
         // Get parameters
-        $this->configName = $request->getParam('config-name') ;
+        $this->configName = $request->getParam('config-name');
         $this->schema = $request->getParam('schema', 'public');
         $this->relation = $request->getParam('relation', '');
 
@@ -396,7 +396,7 @@ abstract class AbstractCliPommController extends AbstractActionController implem
         $out = "";
         switch($status) {
             case "SUCCESS":
-                $out = "[0;31m"; //Green background
+                $out = "[0;32m"; //Green background
                 break;
             case "FAILURE":
                 $out = "[0;31m"; //Red background
