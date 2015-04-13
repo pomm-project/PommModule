@@ -15,8 +15,6 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\ModuleManagerInterface;
 use Zend\EventManager\EventInterface;
 use Zend\Loader\StandardAutoloader;
-use Zend\Authentication\Storage\Session as SessionStorage;
-use Zend\Authentication\AuthenticationService;
 
 use PommProject\PommModule\Service\Authentication\PommAuthenticationAdapter;
 
