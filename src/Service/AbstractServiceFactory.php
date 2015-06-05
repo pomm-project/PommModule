@@ -32,15 +32,22 @@ abstract class AbstractServiceFactory implements FactoryInterface
      */
     public function getPommOptions(ServiceLocatorInterface $sl)
     {
+        // Get and check config
         $options = $sl->get('Config');
-        $options = $options['pomm'];
-
-        if (null === $options) {
-            throw new RuntimeException('Options could not be found in "pomm".');
+        if (is_null($options) || !array_key_exists('pomm', $options)) {
+            throw new \Exception('Options could not be found in "pomm".');
+        }
+        
+        // Define default module's values
+        foreach ($options['pomm']['databases'] as &$database) {
+            if (!array_key_exists('class:session_builder', $database)) {
+                $database['class:session_builder'] = '\PommProject\ModelManager\SessionBuilder';
+            }
         }
 
+        // Set options
+        $options = $options['pomm'];
         $pommOptionsClass = $this->getOptionsClass();
-
         return new $pommOptionsClass($options);
     }
 
