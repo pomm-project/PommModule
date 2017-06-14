@@ -7,123 +7,127 @@
  * @author  Martin Supiot <msupiot@jack.fr>
  */
 
-return array(
-    'service_manager' => array(
-        'factories' =>  array(
-            'PommProject\PommModule\Service\PommServiceFactory' => 'PommProject\PommModule\Service\PommServiceFactory',
-        ),
-    ),
-    'controllers' => [
-        'invokables' => [
-            'PommProject\PommModule\Controller\GenerateDatabaseAllController'       => 'PommProject\PommModule\Controller\GenerateDatabaseAllController',
-            'PommProject\PommModule\Controller\GenerateEntityController'            => 'PommProject\PommModule\Controller\GenerateEntityController',
-            'PommProject\PommModule\Controller\GenerateRelationAllController'       => 'PommProject\PommModule\Controller\GenerateRelationAllController',
-            'PommProject\PommModule\Controller\GenerateRelationModelController'     => 'PommProject\PommModule\Controller\GenerateRelationModelController',
-            'PommProject\PommModule\Controller\GenerateRelationStructureController' => 'PommProject\PommModule\Controller\GenerateRelationStructureController',
-            'PommProject\PommModule\Controller\GenerateSchemaAllController'         => 'PommProject\PommModule\Controller\GenerateSchemaAllController',
-            'PommProject\PommModule\Controller\InspectConfigController'             => 'PommProject\PommModule\Controller\InspectConfigController',
-            'PommProject\PommModule\Controller\InspectDatabaseController'           => 'PommProject\PommModule\Controller\InspectDatabaseController',
-            'PommProject\PommModule\Controller\InspectRelationController'           => 'PommProject\PommModule\Controller\InspectRelationController',
-            'PommProject\PommModule\Controller\InspectSchemaController'             => 'PommProject\PommModule\Controller\InspectSchemaController',
+return [
+    'service_manager' => [
+        'factories' =>  [
+            'pomm_service' =>  PommProject\PommModule\Service\PommServiceFactory::class,
         ],
     ],
-    'console' => array(
-        'router' => array(
-            'routes' => array(
+    'controllers' => [
+        'factories' => [
+            Controller\IndexController::class => InvokableFactory::class,
+            PommProject\PommModule\Controller\GenerateDatabaseAllController::class => PommProject\PommModule\Controller\GenerateDatabaseAllControllerFactory::class,
+            PommProject\PommModule\Controller\GenerateEntityController::class => PommProject\PommModule\Controller\GenerateEntityControllerFactory::class,
+            PommProject\PommModule\Controller\GenerateRelationAllController::class => PommProject\PommModule\Controller\GenerateRelationAllControllerFactory::class,
+            PommProject\PommModule\Controller\GenerateRelationModelController::class => PommProject\PommModule\Controller\GenerateRelationModelControllerFactory::class,
+            PommProject\PommModule\Controller\GenerateRelationStructureController::class => PommProject\PommModule\Controller\GenerateRelationStructureControllerFactory::class,
+            PommProject\PommModule\Controller\GenerateSchemaAllController::class => PommProject\PommModule\Controller\GenerateSchemaAllControllerFactory::class,
+            PommProject\PommModule\Controller\InspectConfigController::class => PommProject\PommModule\Controller\InspectConfigControllerFactory::class,
+            PommProject\PommModule\Controller\InspectDatabaseController::class => PommProject\PommModule\Controller\InspectDatabaseControllerFactory::class,
+            PommProject\PommModule\Controller\InspectRelationController::class => PommProject\PommModule\Controller\InspectRelationControllerFactory::class,
+            PommProject\PommModule\Controller\InspectSchemaController::class => PommProject\PommModule\Controller\InspectSchemaControllerFactory::class,
+        ],
+    ],
+    'console' => [
+        'view_manager' => [
+            'display_exceptions' => true,
+        ],
+        'router' => [
+            'routes' => [
                 // Inspectors
-                'inspect-config' => array(
-                    'options' => array(
+                'inspect-config' => [
+                    'options' => [
                         'route'    => 'inspect-config',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\InspectConfigController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\InspectConfigController::class,
                             'action'     => 'inspect'
-                        )
-                    )
-                ),
-                'inspect-database' => array(
-                    'options' => array(
+                        ]
+                    ]
+                ],
+                'inspect-database' => [
+                    'options' => [
                         'route'    => 'inspect-database <config-name>',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\InspectDatabaseController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\InspectDatabaseController::class,
                             'action'     => 'inspect'
-                        )
-                    )
-                ),
-                'inspect-schema' => array(
-                    'options' => array(
+                        ]
+                    ]
+                ],
+                'inspect-schema' => [
+                    'options' => [
                         'route'    => 'inspect-schema <config-name> <schema>',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\InspectSchemaController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\InspectSchemaController::class,
                             'action'     => 'inspect'
-                        )
-                    )
-                ),
-                'inspect-relation' => array(
-                    'options' => array(
+                        ]
+                    ]
+                ],
+                'inspect-relation' => [
+                    'options' => [
                         'route'    => 'inspect-relation <config-name> <schema> <relation>',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\InspectRelationController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\InspectRelationController::class,
                             'action'     => 'inspect'
-                        )
-                    )
-                ),
+                        ]
+                    ]
+                ],
                 // Generators
-                'generate-entity' => array(
-                    'options' => array(
-                        'route'    => 'generate-entity <config-name> <entity-name> <relation> [--force] [--prefix-dir=] [--prefix-ns=] [--flexible-container=]',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\GenerateEntityController',
+                'generate-entity' => [
+                    'options' => [
+                        'route'    => 'generate-entity <config-name> <schema> <relation> [--force] [--prefix-dir=] [--prefix-ns=] [--flexible-container=]',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\GenerateEntityController::class,
                             'action'     => 'generate'
-                        )
-                    )
-                ),
-                'generate-model' => array(
-                    'options' => array(
+                        ]
+                    ]
+                ],
+                'generate-model' => [
+                    'options' => [
                         'route'    => 'generate-model <config-name> <schema> <relation> [--force] [--prefix-dir=] [--prefix-ns=] [--flexible-container=]',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\GenerateRelationModelController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\GenerateRelationModelController::class,
                             'action'     => 'generate'
-                        )
-                    )
-                ),
-                'generate-structure' => array(
-                    'options' => array(
+                        ]
+                    ]
+                ],
+                'generate-structure' => [
+                    'options' => [
                         'route'    => 'generate-structure <config-name> <schema> <relation> [--prefix-dir=] [--prefix-ns=] [--flexible-container=]',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\GenerateRelationStructureController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\GenerateRelationStructureController::class,
                             'action'     => 'generate'
-                        )
-                    )
-                ),
+                        ]
+                    ]
+                ],
                 // Meta generators
-                'generate-relation-all' => array(
-                    'options' => array(
+                'generate-relation-all' => [
+                    'options' => [
                         'route'    => 'generate-relation-all <config-name> <schema> <relation> [--force] [--prefix-dir=] [--prefix-ns=] [--flexible-container=] [--verbose]',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\GenerateRelationAllController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\GenerateRelationAllController::class,
                             'action'     => 'generate'
-                        )
-                    )
-                ),
-                'generate-schema-all' => array(
-                    'options' => array(
+                        ]
+                    ]
+                ],
+                'generate-schema-all' => [
+                    'options' => [
                         'route'    => 'generate-schema-all <config-name> <schema> [--force] [--prefix-dir=] [--prefix-ns=] [--flexible-container=] [--verbose]',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\GenerateSchemaAllController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\GenerateSchemaAllController::class,
                             'action'     => 'generate'
-                        )
-                    )
-                ),
-                'generate-database-all' => array(
-                    'options' => array(
+                        ]
+                    ]
+                ],
+                'generate-database-all' => [
+                    'options' => [
                         'route'    => 'generate-database-all <config-name> [--force] [--prefix-dir=] [--prefix-ns=] [--flexible-container=] [--verbose]',
-                        'defaults' => array(
-                            'controller' => 'PommProject\PommModule\Controller\GenerateDatabaseAllController',
+                        'defaults' => [
+                            'controller' => PommProject\PommModule\Controller\GenerateDatabaseAllController::class,
                             'action'     => 'generate'
-                        )
-                    )
-                ),
-            )
-        )
-    ),
-);
+                        ]
+                    ]
+                ],
+            ]
+        ]
+    ],
+];

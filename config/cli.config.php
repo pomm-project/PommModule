@@ -9,6 +9,14 @@
 
 return array(
     'modules' => array(
+        'Zend\Router',
+        'Zend\ServiceManager\Di',
+        'Zend\Session',
+        'Zend\Log',
+        'Zend\InputFilter',
+        'Zend\Filter',
+        'Zend\Validator',
+        'Zend\Mvc\Console',
         'PommProject\PommModule',
         'Database',
     ),

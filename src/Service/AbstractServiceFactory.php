@@ -10,8 +10,10 @@
 namespace PommProject\PommModule\Service;
 
 use RuntimeException;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+
+use Interop\Container\ContainerInterface;
+
+use Zend\ServiceManager\Factory\FactoryInterface;
 
 /**
  * Return the Pomm options
@@ -24,16 +26,16 @@ abstract class AbstractServiceFactory implements FactoryInterface
     protected $options;
 
     /**
-     * @param ServiceLocatorInterface $sl
+     * @param ContainerInterface $container
      * @param string $key
      * @param null|string $name
      * @return \Zend\Stdlib\AbstractOptions
      * @throws \RuntimeException
      */
-    public function getPommOptions(ServiceLocatorInterface $sl)
+    public function getPommOptions(ContainerInterface $container)
     {
         // Get and check config
-        $options = $sl->get('Config');
+        $options = $container->get('Config');
         if (is_null($options) || !array_key_exists('pomm', $options)) {
             throw new \Exception('Options could not be found in "pomm".');
         }

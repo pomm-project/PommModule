@@ -11,6 +11,8 @@ namespace PommProject\PommModule\Service;
 
 use Zend\ServiceManager\ServiceLocatorInterface;
 
+use Interop\Container\ContainerInterface;
+
 use PommProject\Foundation\Pomm as PommService;
 
 /**
@@ -21,9 +23,9 @@ class PommServiceFactory extends AbstractServiceFactory
     /**
      * @return \Pomm\Connection\Database
      */
-    public function createService(ServiceLocatorInterface $sl)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $databaseList = $this->getPommOptions($sl)->getDatabases();
+        $databaseList = $this->getPommOptions($container)->getDatabases();
         $service = new PommService($databaseList);
 
         return $service;

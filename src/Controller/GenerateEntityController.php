@@ -39,6 +39,7 @@ class GenerateEntityController extends AbstractCliPommController implements Cons
 
             // Describe expected parameters
             array('<config-name>', 'Database configuration name to open a session.'),
+            array('<schema>', 'Schema of the relation.'),
             array('<relation>', 'Relation with which we work'),
             array('--force', 'Force overwriting an existing file.'),
             array('--prefix-dir', 'Indicate a directory prefix.'),

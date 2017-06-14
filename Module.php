@@ -35,12 +35,13 @@ class Module implements ConfigProviderInterface, InitProviderInterface, Bootstra
     {
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function onBootstrap(EventInterface $event)
+    public function onBootstrap(EventInterface $e)
     {
-        $this->serviceManager = $event->getTarget()->getServiceManager();
+        $this->serviceManager = $e->getTarget()->getServiceManager();
+        $sharedEvents = $e->getApplication()->getEventManager()->getSharedManager();
+        $sharedEvents->attach(__NAMESPACE__, 'dispatch', function($e) {
+            $result->setTerminal(true);
+        });
     }
 
     /**

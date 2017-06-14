@@ -12,38 +12,32 @@ namespace PommProject\PommModule\Controller;
 use Zend\ModuleManager\Feature\ConsoleBannerProviderInterface;
 use Zend\Console\Adapter\AdapterInterface as Console;
 use Zend\Console\Request as ConsoleRequest;
-use Zend\Mvc\Controller\AbstractActionController;
 
 use PommProject\Foundation\Pomm;
 use PommProject\Foundation\Session\Session;
 use PommProject\Foundation\Inspector\InspectorPooler;
 use PommProject\Foundation\Inflector;
+use PommProject\Foundation\Pomm as PommService;
 
 /**
  * Console controller
  * Generate Pomm base class
  */
-abstract class AbstractCliPommController extends AbstractActionController implements ConsoleBannerProviderInterface
+abstract class AbstractCliPommController extends AbstractConsoleController implements ConsoleBannerProviderInterface
 {
+    protected $console;
+    private $pommService;
+
     private $pomm;
     private $session;
     private $configName;
     private $schema;
     private $relation;
 
-    /**
-     * Check if we're in console mode
-     * 
-     * @return void
-     */
-    protected function checkConsole()
+    public function __construct(Console $console, PommService $pommService)
     {
-        // Make sure that we are running in a console and the user has not tricked our
-        // application into running this action from a public web server.
-        $console = $this->getServiceLocator()->get('console');
-        if (!$console instanceof Console) {
-            throw new RuntimeException('Cannot obtain console adapter. Are we running in a console?');
-        }
+        $this->console = $console;
+        $this->pommService = $pommService;
     }
 
     /**
@@ -62,8 +56,7 @@ abstract class AbstractCliPommController extends AbstractActionController implem
      */
     protected function getToolOptions(ConsoleRequest $request)
     {
-        $pommService = $this->getServiceLocator()->get('PommProject\PommModule\Service\PommServiceFactory');
-        $this->setPomm($pommService);
+        $this->setPomm($this->pommService);
 
         $this->options = array();
 
