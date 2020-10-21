@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -9,22 +9,22 @@
 
 namespace PommProject\PommModule;
 
-use Zend\ModuleManager\Feature\InitProviderInterface;
-use Zend\ModuleManager\Feature\BootstrapListenerInterface;
-use Zend\ModuleManager\Feature\ConfigProviderInterface;
-use Zend\ModuleManager\ModuleManagerInterface;
-use Zend\EventManager\EventInterface;
-use Zend\Loader\StandardAutoloader;
+use Laminas\ModuleManager\Feature\InitProviderInterface;
+use Laminas\ModuleManager\Feature\BootstrapListenerInterface;
+use Laminas\ModuleManager\Feature\ConfigProviderInterface;
+use Laminas\ModuleManager\ModuleManagerInterface;
+use Laminas\EventManager\EventInterface;
+use Laminas\Loader\StandardAutoloader;
 
 use PommProject\PommModule\Service\Authentication\PommAuthenticationAdapter;
 
 /**
- * Integrate of Pomm projects with ZF2 applications
+ * Integrate of Pomm projects with Laminas applications
  */
 class Module implements ConfigProviderInterface, InitProviderInterface, BootstrapListenerInterface
 {
     /**
-     * @var \Zend\ServiceManager\ServiceLocatorInterface
+     * @var \Laminas\ServiceManager\ServiceLocatorInterface
      */
     private $serviceManager;
 
@@ -55,14 +55,14 @@ class Module implements ConfigProviderInterface, InitProviderInterface, Bootstra
     public function getAutoloaderConfig()
     {
         return array(
-            'Zend\Loader\StandardAutoloader' => array(
+            'Laminas\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src/',
                 ),
             ),
         );
     }
-   
+
     /**
      * {@inheritDoc}
      */

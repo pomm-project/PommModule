@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -9,7 +9,7 @@
 
 namespace PommProject\PommModule\Options;
 
-use Zend\Stdlib\AbstractOptions;
+use Laminas\Stdlib\AbstractOptions;
 
 /**
  * Options for Pomm connection

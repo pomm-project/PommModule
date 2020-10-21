@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -9,14 +9,14 @@
 
 return array(
     'modules' => array(
-        'Zend\Router',
-        'Zend\ServiceManager\Di',
-        'Zend\Session',
-        'Zend\Log',
-        'Zend\InputFilter',
-        'Zend\Filter',
-        'Zend\Validator',
-        'Zend\Mvc\Console',
+        'Laminas\Router',
+        'Laminas\ServiceManager\Di',
+        'Laminas\Session',
+        'Laminas\Log',
+        'Laminas\InputFilter',
+        'Laminas\Filter',
+        'Laminas\Validator',
+        'Laminas\Mvc\Console',
         'PommProject\PommModule',
         'Database',
     ),

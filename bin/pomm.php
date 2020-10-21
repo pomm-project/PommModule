@@ -6,4 +6,4 @@ ini_set('display_errors', true);
 require __DIR__ . '/../../../autoload.php';
 
 // Run the application!
-Zend\Mvc\Application::init($cliConfig)->run();
+Laminas\Mvc\Application::init($cliConfig)->run();

@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/

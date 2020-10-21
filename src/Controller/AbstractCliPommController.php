@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -9,9 +9,9 @@
 
 namespace PommProject\PommModule\Controller;
 
-use Zend\ModuleManager\Feature\ConsoleBannerProviderInterface;
-use Zend\Console\Adapter\AdapterInterface as Console;
-use Zend\Console\Request as ConsoleRequest;
+use Laminas\ModuleManager\Feature\ConsoleBannerProviderInterface;
+use Laminas\Console\Adapter\AdapterInterface as Console;
+use Laminas\Console\Request as ConsoleRequest;
 
 use PommProject\Foundation\Pomm;
 use PommProject\Foundation\Session\Session;
@@ -50,7 +50,7 @@ abstract class AbstractCliPommController extends AbstractConsoleController imple
 
     /**
      * Get options from parameters
-     * 
+     *
      * @param  ConsoleRequest $request The request
      * @return array                   An array of parameters
      */
@@ -76,7 +76,7 @@ abstract class AbstractCliPommController extends AbstractConsoleController imple
 
     /**
      * Return all parameters
-     * 
+     *
      * @return array The request parameters
      */
     protected function getParameters()
@@ -315,7 +315,7 @@ abstract class AbstractCliPommController extends AbstractConsoleController imple
 
     /**
      * Set configuration name
-     * 
+     *
      * @param  string $configName  The configuration name
      * @return PommAwareController
      */
@@ -336,7 +336,7 @@ abstract class AbstractCliPommController extends AbstractConsoleController imple
 
     /**
      * Set schema
-     * 
+     *
      * @param  string $schema  The schema name
      * @return PommAwareController
      */
@@ -357,7 +357,7 @@ abstract class AbstractCliPommController extends AbstractConsoleController imple
 
     /**
      * Set relation
-     * 
+     *
      * @param  string $relation  The relation name
      * @return PommAwareController
      */
@@ -378,10 +378,10 @@ abstract class AbstractCliPommController extends AbstractConsoleController imple
 
     /**
      * Decorate output
-     * 
+     *
      * @param  string $text   The text
      * @param  string $status The decoration type
-     * 
+     *
      * @return string         The decorated string
      */
     protected function colorize($text, $status)

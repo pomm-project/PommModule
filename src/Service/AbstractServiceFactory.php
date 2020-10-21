@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -13,7 +13,7 @@ use RuntimeException;
 
 use Interop\Container\ContainerInterface;
 
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 /**
  * Return the Pomm options
@@ -21,7 +21,7 @@ use Zend\ServiceManager\Factory\FactoryInterface;
 abstract class AbstractServiceFactory implements FactoryInterface
 {
     /**
-     * @var \Zend\Stdlib\AbstractOptions
+     * @var \Laminas\Stdlib\AbstractOptions
      */
     protected $options;
 
@@ -29,7 +29,7 @@ abstract class AbstractServiceFactory implements FactoryInterface
      * @param ContainerInterface $container
      * @param string $key
      * @param null|string $name
-     * @return \Zend\Stdlib\AbstractOptions
+     * @return \Laminas\Stdlib\AbstractOptions
      * @throws \RuntimeException
      */
     public function getPommOptions(ContainerInterface $container)
@@ -39,7 +39,7 @@ abstract class AbstractServiceFactory implements FactoryInterface
         if (is_null($options) || !array_key_exists('pomm', $options)) {
             throw new \Exception('Options could not be found in "pomm".');
         }
-        
+
         // Define default module's values
         foreach ($options['pomm']['databases'] as &$database) {
             if (!array_key_exists('class:session_builder', $database)) {
