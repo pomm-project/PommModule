@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -9,13 +9,13 @@
 
 namespace PommProject\PommModule\Controller;
 
-use Zend\Console\Adapter\AdapterInterface as Console;
-use Zend\Mvc\Console\Controller\AbstractConsoleController as ZendAbstractConsoleController;
+use Laminas\Console\Adapter\AdapterInterface as Console;
+use Laminas\Mvc\Console\Controller\AbstractConsoleController as LaminasAbstractConsoleController;
 
 /**
  * Admin Console controller
  */
-abstract class AbstractConsoleController extends ZendAbstractConsoleController
+abstract class AbstractConsoleController extends LaminasAbstractConsoleController
 {
     /** @var int Timer */
     protected $timer;

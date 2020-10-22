@@ -1,7 +1,7 @@
 PommModule
 ==========
 
-Pomm module to use Pomm2 with zf2
+Pomm module to use Pomm2 with Laminas
 
 If you want to use Pomm 1.x, there's a 1.0 branch.
 
@@ -130,4 +130,4 @@ TODO
 ----
 
 - Add a generator for model layer
-- Add a generator for ZF2 configuration
+- Add a generator for Laminas configuration

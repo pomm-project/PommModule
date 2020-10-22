@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -9,10 +9,10 @@
 
 namespace PommProject\PommModule\Controller;
 
-use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
-use Zend\Console\Adapter\AdapterInterface as Console;
-use Zend\Console\Request as ConsoleRequest;
-use Zend\Text\Table\Table;
+use Laminas\ModuleManager\Feature\ConsoleUsageProviderInterface;
+use Laminas\Console\Adapter\AdapterInterface as Console;
+use Laminas\Console\Request as ConsoleRequest;
+use Laminas\Text\Table\Table;
 
 use PommProject\Foundation\ResultIterator;
 use PommProject\Cli\Command\SessionAwareCommand;
@@ -26,7 +26,7 @@ class InspectRelationController extends AbstractCliPommController implements Con
 {
     /**
      * Explain the console usage
-     * 
+     *
      * @param  Console $console The console used
      * @return array            The parameters of the command
      */
@@ -46,7 +46,7 @@ class InspectRelationController extends AbstractCliPommController implements Con
 
     /**
      * Complete the parent options tool
-     * 
+     *
      * @param  ConsoleRequest $request The console
      * @return array                   An array of parameters
      */
@@ -90,7 +90,7 @@ class InspectRelationController extends AbstractCliPommController implements Con
 
     /**
      * Format output
-     * 
+     *
      * @return string The output
      */
     protected function formatOutput($fieldInfoList)
@@ -114,7 +114,7 @@ class InspectRelationController extends AbstractCliPommController implements Con
         }
 
         $output .= $table;
-        
+
         return $output;
     }
 

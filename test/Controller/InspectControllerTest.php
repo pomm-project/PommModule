@@ -2,7 +2,7 @@
 
 namespace PommProjectTest\PommModule\Controller;
 
-use Zend\Test\PHPUnit\Controller\AbstractConsoleControllerTestCase;
+use Laminas\Test\PHPUnit\Controller\AbstractConsoleControllerTestCase;
 use PommProjectTest\PommModule\Bootstrap;
 
 class InspectConfigControllerTest extends AbstractConsoleControllerTestCase

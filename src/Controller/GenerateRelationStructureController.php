@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -9,9 +9,9 @@
 
 namespace PommProject\PommModule\Controller;
 
-use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
-use Zend\Console\Adapter\AdapterInterface as Console;
-use Zend\Console\Request as ConsoleRequest;
+use Laminas\ModuleManager\Feature\ConsoleUsageProviderInterface;
+use Laminas\Console\Adapter\AdapterInterface as Console;
+use Laminas\Console\Request as ConsoleRequest;
 
 use PommProject\Foundation\ParameterHolder;
 use PommProject\ModelManager\Generator\StructureGenerator;
@@ -24,10 +24,10 @@ class GenerateRelationStructureController extends AbstractCliPommController impl
 {
     private $filename;
     private $namespace;
-    
+
     /**
      * Explain the console usage
-     * 
+     *
      * @param  Console $console The console used
      * @return array            The parameters of the command
      */
@@ -49,7 +49,7 @@ class GenerateRelationStructureController extends AbstractCliPommController impl
 
     /**
      * Complete the parent options tool
-     * 
+     *
      * @param  ConsoleRequest $request The console
      * @return array                   An array of parameters
      */
@@ -71,7 +71,7 @@ class GenerateRelationStructureController extends AbstractCliPommController impl
         $request = $this->getRequest();
         $options = $this->getToolOptions($request);
         $parameterList = array_merge($this->getParameters(), $options);
-        
+
         // Compute options
         $this->filename = $this->getFileName($this->getConfigName(), null, 'AutoStructure');
         $this->namespace = $this->getNamespace($this->getConfigName(), 'AutoStructure');

@@ -1,6 +1,6 @@
 <?php
 /**
- * Base module for integration of Pomm projects with ZF2 applications
+ * Base module for integration of Pomm projects with Laminas applications
  *
  * @license MIT
  * @link    http://www.pomm-project.org/
@@ -9,9 +9,9 @@
 
 namespace PommProject\PommModule\Controller;
 
-use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
-use Zend\Console\Adapter\AdapterInterface as Console;
-use Zend\Console\Request as ConsoleRequest;
+use Laminas\ModuleManager\Feature\ConsoleUsageProviderInterface;
+use Laminas\Console\Adapter\AdapterInterface as Console;
+use Laminas\Console\Request as ConsoleRequest;
 
 use PommProject\Foundation\ResultIterator;
 use PommProject\Cli\Command\SessionAwareCommand;
@@ -24,7 +24,7 @@ class InspectConfigController extends AbstractCliPommController implements Conso
 {
     /**
      * Explain the console usage
-     * 
+     *
      * @param  Console $console The console used
      * @return array            The parameters of the command
      */
@@ -38,7 +38,7 @@ class InspectConfigController extends AbstractCliPommController implements Conso
 
     /**
      * Complete the parent options tool
-     * 
+     *
      * @param  ConsoleRequest $request The console
      * @return array                   An array of parameters
      */
@@ -69,7 +69,7 @@ class InspectConfigController extends AbstractCliPommController implements Conso
     private function showResultList(array $resultList)
     {
         // Data table
-        $table = new \Zend\Text\Table\Table(array('columnWidths' => array(20)));
+        $table = new \Laminas\Text\Table\Table(array('columnWidths' => array(20)));
         $table->appendRow(array('name'));
         foreach ($resultList as $result) {
             $table->appendRow(array(
@@ -81,7 +81,7 @@ class InspectConfigController extends AbstractCliPommController implements Conso
 
     /**
      * Format output
-     * 
+     *
      * @return string The output
      */
     protected function formatOutput($results)
@@ -98,7 +98,7 @@ class InspectConfigController extends AbstractCliPommController implements Conso
             default:
                 $output .= sprintf("There are %d builders in current Pomm instance:", count($results)) . "\n" . $this->showResultList($results);
         }
-        
+
         return $output;
     }
 }
